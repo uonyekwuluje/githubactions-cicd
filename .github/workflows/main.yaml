@@ -6,7 +6,7 @@ jobs:
   java-main:
     name: GitHub Actions Build
     # possible values for runs-on ['ubuntu-latest', 'ubuntu:16.04', 'ubuntu:18.04']
-    runs-on: 'ubuntu:18.04'
+    runs-on: 'ubuntu-latest'
 
     steps:
       - name: Checkout code
@@ -19,3 +19,4 @@ jobs:
       - name: Check Version
         run: |
           cat /etc/debian_version
+          lsb_release -a
