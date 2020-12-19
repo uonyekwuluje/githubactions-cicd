@@ -16,7 +16,14 @@ jobs:
         run: |
           ls
 
-      - name: Check Version
-        run: |
-          cat /etc/debian_version
-          lsb_release -a
+      - name:  Install
+        run:   |
+           if [ "$RUNNER_OS" == "Linux" ]; then
+              cat /etc/debian_version
+              lsb_release -a
+           elif [ "$RUNNER_OS" == "Windows" ]; then
+              choco install filezilla
+           else
+              echo "$RUNNER_OS not supported"
+              exit 1
+           fi
