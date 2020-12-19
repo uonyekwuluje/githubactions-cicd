@@ -1,22 +1,24 @@
 name: GitHub Actions Labs
 
-# Run this workflow every time a new commit pushed to your repository
 on: push
 
 jobs:
-  # Set the job key. The key is displayed as the job name
-  # when a job name is not provided
   java-main:
-    # Name the Job
-    name: Java Tutorial Base
-    # Set the type of machine to run on
+    name: GitHub Actions Build on ${{matrix.container }}
     runs-on: ubuntu-latest
+    container: ${{ matrix.container }}
+    strategy:
+      matrix:
+        container: ['ubuntu:16.04', 'ubuntu:18.04']
 
     steps:
-      # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Test Check Out
         run: |
           ls
+
+      - name: Check Version
+        run: |
+          cat /etc/debian_version
