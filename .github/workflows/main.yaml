@@ -4,12 +4,9 @@ on: push
 
 jobs:
   java-main:
-    name: GitHub Actions Build on ${{matrix.container }}
-    runs-on: ubuntu-latest
-    container: ${{ matrix.container }}
-    strategy:
-      matrix:
-        container: ['ubuntu:16.04', 'ubuntu:18.04']
+    name: GitHub Actions Build
+    # possible values for runs-on ['ubuntu-latest', 'ubuntu:16.04', 'ubuntu:18.04']
+    runs-on: 'ubuntu:18.04'
 
     steps:
       - name: Checkout code

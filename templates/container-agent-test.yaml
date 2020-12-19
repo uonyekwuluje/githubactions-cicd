@@ -1,0 +1,10 @@
+jobs:
+  build:
+    name: Build on ${{matrix.container }}
+    runs-on: ubuntu-latest
+    container: ${{ matrix.container }}
+    strategy:
+      matrix:
+        container: ['ubuntu:16.04', 'ubuntu:18.04']
+    steps:
+    - run: cat /etc/debian_version
