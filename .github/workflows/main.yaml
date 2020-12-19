@@ -5,8 +5,7 @@ on: push
 jobs:
   java-main:
     name: GitHub Actions Build
-    # possible values for runs-on ['ubuntu-latest', 'ubuntu:16.04', 'ubuntu:18.04']
-    runs-on: self-hosted
+    runs-on: 'uchtest'
 
     steps:
       - name: Checkout code
@@ -15,15 +14,3 @@ jobs:
       - name: Test Check Out
         run: |
           ls
-
-      - name:  Install
-        run:   |
-           if [ "$RUNNER_OS" == "Linux" ]; then
-              cat /etc/debian_version
-              lsb_release -a
-           elif [ "$RUNNER_OS" == "Windows" ]; then
-              choco install filezilla
-           else
-              echo "$RUNNER_OS not supported"
-              exit 1
-           fi
