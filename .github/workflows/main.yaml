@@ -5,7 +5,7 @@ on: push
 jobs:
   java-main:
     name: GitHub Actions Build
-    runs-on: 'uchtest'
+    runs-on: 'githubactions-agent1'
 
     steps:
       - name: Checkout code
