@@ -1,0 +1,23 @@
+name: Pipeline Container Test
+
+on: [push]
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  go-build:
+    runs-on: self-hosted
+
+    container:
+      image: golang:1.14-buster   
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Run Hello World
+        run: |
+          go version
+          go run hello.go
