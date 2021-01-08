@@ -30,8 +30,8 @@ jobs:
 
       - name: Test Go Code One
         run: |
-          go run godemo/hello.go
+          go run go/src/github.com/godemo/hello.go
 
       - name: Test Go Code Two
         run: |
-          go run godemo2/hello.go
+          go run go/src/github.com/godemo2/hello.go
