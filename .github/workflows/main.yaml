@@ -23,6 +23,10 @@ jobs:
         with:
           path: "go/src/github.com"
 
+      - name: Check Linux Version
+        run: |
+          lsb_release -a
+
       - name: Test Check Out
         run: |
           sudo apt install -y tree
