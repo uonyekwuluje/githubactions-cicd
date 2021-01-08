@@ -14,8 +14,14 @@ jobs:
     runs-on: 'ubuntu-latest'
 
     steps:
+      - name: Create Directory
+        run: |
+          mkdir -p go/src/github.com
+
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          path: "go/src/github.com"
 
       - name: Test Check Out
         run: |
