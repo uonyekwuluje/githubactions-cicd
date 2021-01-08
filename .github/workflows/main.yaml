@@ -1,6 +1,12 @@
 name: GitHub Actions Labs
 
-on: push
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master 
 
 jobs:
   java-main:
@@ -8,13 +14,24 @@ jobs:
     runs-on: 'ubuntu-latest'
 
     steps:
+      - name: Create Directory
+        run: |
+          mkdir -p go/src/github.com
+
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          path: "go/src/github.com"
 
       - name: Test Check Out
         run: |
-          ls
+          sudo apt install -y tree
+          tree 
 
-      - name: Test Go Code
+      - name: Test Go Code One
         run: |
-          go run godemo/hello.go
+          go run go/src/github.com/godemo/hello.go
+
+      - name: Test Go Code Two
+        run: |
+          go run go/src/github.com/godemo2/hello.go
