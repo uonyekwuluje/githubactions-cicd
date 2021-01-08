@@ -25,7 +25,8 @@ jobs:
 
       - name: Test Check Out
         run: |
-          ls
+          sudo apt install -y tree
+          tree 
 
       - name: Test Go Code One
         run: |
