@@ -40,7 +40,7 @@ To install Self Hosted Runners, visit [Self Hosted Runner](https://github.com/ac
 ```
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y build-essential
-sudo apt install -y autoconf automake gdb git libffi-dev zlib1g-dev libssl-dev
+sudo apt install -y autoconf automake gdb git libffi-dev zlib1g-dev libssl-dev jq
 
 GITHUBACTIONS_RUNNER="2.275.1"
 SYSTEM_USER="ubuntu"
