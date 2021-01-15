@@ -100,8 +100,18 @@ Check the Actions menu and you should see the runner on-line. After this, kill t
 ```
 sudo ./svc.sh install
 sudo ./svc.sh start
+```
+Check the status of the service
+```
 sudo ./svc.sh status
 ```
+
+Other tasks here are
+```
+sudo ./svc.sh stop
+sudo ./svc.sh uninstall
+```
+
 
 ### **Repository Release**
 * [Github Action Releases](https://github.com/actions/runner/releases)
