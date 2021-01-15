@@ -11,7 +11,8 @@ on:
 jobs:
   java-main:
     name: GitHub Actions Build
-    runs-on: 'ubuntu-latest'
+    #runs-on: 'ubuntu-latest'
+    runs-on: 'ci'
 
     steps:
       - name: Create Directory
