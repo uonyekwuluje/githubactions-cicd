@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Create Directory
         run: |
-          mkdir -p ${{ env.WORK_DIRECTORY }}
+          sudo mkdir -p ${{ env.WORK_DIRECTORY }}
 
       - name: Checkout code
         uses: actions/checkout@v2
