@@ -34,7 +34,8 @@ jobs:
 
       - name: Test Go Code One
         run: |
-          ls -la ${{ env.WORK_DIRECTORY }}
+          #ls -la ${{ env.WORK_DIRECTORY }}
+          ls ${{ github.workspace }}
       #- name: Test Go Code One
       #  run: |
       #    go run ${WORK_DIRECTORY}/godemo/hello.go
