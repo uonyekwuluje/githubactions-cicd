@@ -8,6 +8,10 @@ on:
     branches:
       - master 
 
+env:
+   WORK_DIRECTORY: "go/src"
+
+
 jobs:
   java-main:
     name: GitHub Actions Build
@@ -16,17 +20,17 @@ jobs:
     steps:
       - name: Create Directory
         run: |
-          mkdir -p go/src
+          mkdir -p ${WORK_DIRECTORY}
 
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          path: "go/src"
+          path: ${WORK_DIRECTORY}
 
       - name: Test Go Code One
         run: |
-          go run go/src/godemo/hello.go
+          go run ${WORK_DIRECTORY}/godemo/hello.go
 
       - name: Test Go Code Two
         run: |
-          go run go/src/godemo2/hello.go
+          go run ${WORK_DIRECTORY}/godemo2/hello.go
