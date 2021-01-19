@@ -1,8 +1,8 @@
 package main
 
 import (
-  "./godemo" 
-  "./godemo2"
+  "github.com/uonyekwuluje/githubactions-recipes/godemo"
+  "github.com/uonyekwuluje/githubactions-recipes/godemo2"
 )
 
 func main() {
