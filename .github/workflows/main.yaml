@@ -27,7 +27,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: ${{ env.WORK_DIRECTORY }}
-          lfs: true
 
       - name: Install Prereqs
         run: |
@@ -35,7 +34,7 @@ jobs:
 
       - name: Test Go Code One
         run: |
-          tree ${{ env.WORK_DIRECTORY }}
+          ls -la ${{ env.WORK_DIRECTORY }}
       #- name: Test Go Code One
       #  run: |
       #    go run ${WORK_DIRECTORY}/godemo/hello.go
