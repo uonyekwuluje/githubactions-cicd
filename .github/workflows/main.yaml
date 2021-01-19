@@ -20,20 +20,20 @@ jobs:
     steps:
       - name: Create Directory
         run: |
-          mkdir -p ${{env.WORK_DIRECTORY}}
+          mkdir -p ${{ env.WORK_DIRECTORY }}
 
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          path: ${{env.WORK_DIRECTORY}}
+          path: ${{ env.WORK_DIRECTORY }}
 
       - name: Install Prereqs
         run: |
-          apt install -y tree
+          sudo apt install -y tree
 
       - name: Test Go Code One
         run: |
-          tree ${{env.WORK_DIRECTORY}}
+          tree ${{ env.WORK_DIRECTORY }}
       #- name: Test Go Code One
       #  run: |
       #    go run ${WORK_DIRECTORY}/godemo/hello.go
