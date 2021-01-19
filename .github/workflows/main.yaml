@@ -27,6 +27,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: ${{ env.WORK_DIRECTORY }}
+          lfs: true
 
       - name: Install Prereqs
         run: |
