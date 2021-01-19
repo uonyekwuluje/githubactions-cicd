@@ -23,13 +23,12 @@ jobs:
         run: |
           #ls -la ${{ env.WORK_DIRECTORY }}
           ls -la ${{ github.workspace }}
-          ls
           pwd
 
-      #- name: Test Go Code One
-      #  run: |
-      #    go run godemo/hello.go
+      - name: Test Go Code One
+        run: |
+          go run godemo/hello.go
 
-      #- name: Test Go Code Two
-      #  run: |
-      #    go run godemo2/hello.go
+      - name: Test Go Code Two
+        run: |
+          go run godemo2/hello.go
