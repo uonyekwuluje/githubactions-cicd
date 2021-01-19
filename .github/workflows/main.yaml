@@ -8,6 +8,9 @@ on:
     branches:
       - master 
 
+env:
+   WORK_DIRECTORY: "go/src/github.com/uonyekwuluje/githubactions-recipes"
+
 
 jobs:
   build:
@@ -28,3 +31,5 @@ jobs:
       - name: Test Go Code One
         run: |
           go run hello.go
+        env:
+           GOPATH: /home/runner/work/woodpecker/go
