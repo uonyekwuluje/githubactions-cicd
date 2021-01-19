@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: GitHub Actions Build
+    name: GitHub Actions Build Setup
     runs-on: 'self-hosted'
     #runs-on: 'ubuntu-latest'
 
