@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Create Directory
         run: |
-          sudo mkdir -p ${{ env.WORK_DIRECTORY }}
+          mkdir -p ${{ env.WORK_DIRECTORY }}
 
       - name: Checkout code
         uses: actions/checkout@v2
@@ -36,6 +36,7 @@ jobs:
         run: |
           #ls -la ${{ env.WORK_DIRECTORY }}
           ls -la ${{ github.workspace }}
+          pwd
       #- name: Test Go Code One
       #  run: |
       #    go run ${WORK_DIRECTORY}/godemo/hello.go
