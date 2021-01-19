@@ -27,10 +27,18 @@ jobs:
         with:
           path: ${WORK_DIRECTORY}
 
+      - name: Install Prereqs
+        run: |
+          apt install -y tree
+
       - name: Test Go Code One
         run: |
-          go run ${WORK_DIRECTORY}/godemo/hello.go
+          tree ${WORK_DIRECTORY}
 
-      - name: Test Go Code Two
-        run: |
-          go run ${WORK_DIRECTORY}/godemo2/hello.go
+      #- name: Test Go Code One
+      #  run: |
+      #    go run ${WORK_DIRECTORY}/godemo/hello.go
+
+      #- name: Test Go Code Two
+      #  run: |
+      #    go run ${WORK_DIRECTORY}/godemo2/hello.go
