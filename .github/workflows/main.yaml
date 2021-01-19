@@ -36,6 +36,7 @@ jobs:
         run: |
           #ls -la ${{ env.WORK_DIRECTORY }}
           whoami
+          pwd
       #- name: Test Go Code One
       #  run: |
       #    go run ${WORK_DIRECTORY}/godemo/hello.go
