@@ -9,7 +9,7 @@ on:
       - master 
 
 env:
-   WORK_DIRECTORY: "go/src"
+   WORK_DIRECTORY: "/go/src"
 
 
 jobs:
@@ -34,10 +34,7 @@ jobs:
 
       - name: Test Go Code One
         run: |
-          #ls -la ${{ env.WORK_DIRECTORY }}
-          ls ~
-          whoami
-          pwd
+          ls -la ${{ env.WORK_DIRECTORY }}
       #- name: Test Go Code One
       #  run: |
       #    go run ${WORK_DIRECTORY}/godemo/hello.go
