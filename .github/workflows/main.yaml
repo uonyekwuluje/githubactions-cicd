@@ -32,4 +32,4 @@ jobs:
         run: |
           go run hello.go
         env:
-           GOPATH: /home/runner/work/woodpecker/go
+           GOPATH: ${{ github.workspace }} 
