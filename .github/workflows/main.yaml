@@ -9,7 +9,7 @@ on:
       - master 
 
 env:
-   WORK_DIRECTORY: "go/src"
+   WORK_DIRECTORY: "go/src/github.com/githubactions-recipes"
 
 
 jobs:
