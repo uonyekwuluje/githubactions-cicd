@@ -35,6 +35,7 @@ jobs:
       - name: Test Go Code One
         run: |
           #ls -la ${{ env.WORK_DIRECTORY }}
+          ls ~
           whoami
           pwd
       #- name: Test Go Code One
