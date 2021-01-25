@@ -1,37 +1,51 @@
-name: GitHub ActionsLabs
+name: Testing-Packages
 
-on: 
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master 
-
-env:
-   WORK_DIRECTORY: "go/src/github.com/uonyekwuluje/githubactions-recipes"
-
+on: [push]
 
 jobs:
-  build:
-    name: GitHub Actions Build Setup
-    runs-on: 'self-hosted'
-    #runs-on: 'ubuntu-latest'
-
+  job_1:
+    name: Add 3 and 7
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - shell: bash
+        run: |
+          expr 3 + 7 > math-homework.txt
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v2
         with:
-            path: ${{ env.WORK_DIRECTORY }}
+          name: homework
+          path: math-homework.txt
 
-      - name: Test Go Code One
+  job_2:
+    name: Multiply by 9
+    needs: job_1
+    runs-on: windows-latest
+    steps:
+      - name: Download math result for job 1
+        uses: actions/download-artifact@v2
+        with:
+          name: homework
+      - shell: bash
         run: |
-          #ls -la ${{ env.WORK_DIRECTORY }}
-          ls -la ${{ github.workspace }}
-          pwd
+          value=`cat math-homework.txt`
+          expr $value \* 9 > math-homework.txt
+      - name: Upload math result for job 2
+        uses: actions/upload-artifact@v2
+        with:
+          name: homework
+          path: math-homework.txt
 
-      - name: Test Go Code One
+  job_3:
+    name: Display results
+    needs: job_2
+    runs-on: macOS-latest
+    steps:
+      - name: Download math result for job 2
+        uses: actions/download-artifact@v2
+        with:
+          name: homework
+      - name: Print the final result
+        shell: bash
         run: |
-          go run hello.go
-        env:
-           GOPATH: ${{ github.workspace }} 
+          value=`cat math-homework.txt`
+          echo The result is $value
