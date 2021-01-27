@@ -7,7 +7,18 @@ jobs:
     name: Branch Operations
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
       - name: Extract Branch Name
         shell: bash
         run: |
             echo "Base Branch => $GITHUB_REF"
+
+      - name: Branch Name
+        shell: bash
+        run: |
+             git status
+

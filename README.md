@@ -1,5 +1,5 @@
 # GitHub Actions Recipes
-This is a collection of configs on setting up GitHub Actions and Pipelines.
+This is a collection of configs on setting up GitHub Actions and Pipelines
 
 ### **Runner Token Generation**
 Follow the steps below to generate your runner access token
