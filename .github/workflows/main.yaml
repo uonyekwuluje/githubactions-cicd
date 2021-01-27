@@ -3,8 +3,8 @@ name: Test Branch Name
 on: [push]
 
 jobs:
-  job_1:
-    name: Add 3 and 7
+  Branch_Test:
+    name: Branch Operations
     runs-on: ubuntu-latest
     steps:
       - name: Extract Branch Name
