@@ -20,5 +20,5 @@ jobs:
       - name: Branch Name
         shell: bash
         run: |
-             git status
+            echo "Branch Name ==> $(git rev-parse --abbrev-ref HEAD)"
 
