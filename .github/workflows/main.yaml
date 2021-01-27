@@ -10,9 +10,4 @@ jobs:
       - name: Extract Branch Name
         shell: bash
         run: |
-            echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-
-      - name: Display Branch name
-        shell: bash
-        run: |
-          echo "Branch name => ${{ steps.extract_branch.outputs.branch }}"
+            echo "Base Branch => ${{ github.base_ref }}"
