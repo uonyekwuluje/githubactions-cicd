@@ -10,4 +10,7 @@ jobs:
       - name: Extract Branch Name
         shell: bash
         run: |
-            echo "Base Branch => ${{ github.base_ref }}"
+            echo "Base Branch => ${ BASE_BRANCH }"
+        env:
+           BASE_BRANCH: ${{ github.base_ref }}
+        if: github.event_name == 'pull_request'
