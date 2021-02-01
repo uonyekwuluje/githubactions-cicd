@@ -38,7 +38,7 @@ jobs:
         run: |
           cd ${{ env.GO_BUILD_PATH }} 
           #echo "Work Space => ${{ github.workspace }}"
-          ls
+          ls -la
             
 
   Branch_Test:
