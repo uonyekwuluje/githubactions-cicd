@@ -2,6 +2,11 @@ name: Test Branch Name
 
 on: [push]
 
+env:
+  GO_BUILD_PATH: "/home/labadmin/go/src/github.com/main"
+  CHECKOUT_BRANCH: ${{ github.event.pull_request.head.ref }}
+
+
 jobs:
   TestVariables:
     name: Test Environment Variables
@@ -18,10 +23,20 @@ jobs:
         with:
            ref: ${{ github.event.pull_request.head.ref }}
 
+      - name: Cleanup Checkout Path
+        run: |
+           if [ -d ${{ env.GO_BUILD_PATH }} ]; then rm -Rf ${{ env.GO_BUILD_PATH }}; fi
+           mkdir -p ${{ env.GO_BUILD_PATH }}
+
+      - name: Update Code Path
+        run: |
+            rsync -avzh ${{ github.workspace }} ${{ env.GO_BUILD_PATH }} 
+
 
       - name: Check Workspace
         run: |
-          echo "Work Space => ${{ github.workspace }}"
+          cd ${{ env.GO_BUILD_PATH }} 
+          #echo "Work Space => ${{ github.workspace }}"
           ls
             
 
