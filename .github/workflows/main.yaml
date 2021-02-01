@@ -31,8 +31,8 @@ jobs:
 
       - name: Update Code Path
         run: |
-            rsync -avzh --progress ${{ github.workspace }}/ ${{ env.GO_BUILD_PATH }} 
-
+            rsync -avzh --progress ${{ github.workspace }} ${{ env.GO_BUILD_PATH }} 
+            ls -la ${{ env.GO_BUILD_PATH }}/githubactions-recipes
 
       - name: Check Workspace
         run: |
