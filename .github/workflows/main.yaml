@@ -13,7 +13,8 @@ jobs:
       - name: Check Workspace
         run: |
           echo "Work Space => ${{ github.workspace }}"
-
+          ls
+            
 
   Branch_Test:
     name: Test Shell Scripts
