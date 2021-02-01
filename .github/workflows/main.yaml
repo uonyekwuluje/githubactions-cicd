@@ -3,6 +3,18 @@ name: Test Branch Name
 on: [push]
 
 jobs:
+  TestVariables:
+    name: Branch Operations
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Check Workspace
+        run: |
+          echo "Work Space => {{ github.workspace }}"
+
+
   Branch_Test:
     name: Branch Operations
     runs-on: ubuntu-latest
