@@ -7,8 +7,17 @@ jobs:
     name: Test Environment Variables
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Clean Workspace Path
+        run: |
+           echo "Cleaning Build Workspace"
+           rm -Rf ${{ github.workspace }}
+           #mkdir -p ${{ github.workspace }}
+
+      - name: Checkout Repository With Actions 
         uses: actions/checkout@v2
+        with:
+           ref: ${{ github.event.pull_request.head.ref }}
+
 
       - name: Check Workspace
         run: |
