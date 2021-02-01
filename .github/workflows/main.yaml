@@ -12,7 +12,7 @@ jobs:
 
       - name: Check Workspace
         run: |
-          echo "Work Space => {{ github.workspace }}"
+          echo "Work Space => ${{ github.workspace }}"
 
 
   Branch_Test:
