@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   TestVariables:
-    name: Branch Operations
+    name: Test Environment Variables
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -16,7 +16,7 @@ jobs:
 
 
   Branch_Test:
-    name: Branch Operations
+    name: Test Shell Scripts
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -38,7 +38,7 @@ jobs:
 
 
   GoCode:
-    name: Branch Operations
+    name: Test Go Code
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
