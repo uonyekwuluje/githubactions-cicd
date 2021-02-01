@@ -11,7 +11,7 @@ jobs:
         run: |
            echo "Cleaning Build Workspace"
            rm -Rf ${{ github.workspace }}
-           #mkdir -p ${{ github.workspace }}
+           mkdir -p ${{ github.workspace }}
 
       - name: Checkout Repository With Actions 
         uses: actions/checkout@v2
