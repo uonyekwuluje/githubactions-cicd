@@ -1,0 +1,5 @@
+# Checkout Workaround for Detached Head
+# https://github.com/actions/checkout/issues/317
+uses: actions/checkout@v2
+with:
+  ref: ${{ github.event.pull_request.head.ref }}

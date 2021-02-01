@@ -22,3 +22,13 @@ jobs:
         run: |
             echo "Branch Name ==> $(git rev-parse --abbrev-ref HEAD)"
 
+
+
+
+  GoCode:
+    name: Branch Operations
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Go Code
+        run: |
+          go run gocode/main.go
