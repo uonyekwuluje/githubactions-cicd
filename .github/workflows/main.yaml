@@ -14,7 +14,7 @@ env:
 
 jobs:
   bash-build:
-    name: Base Test
+    name: Bash Build
     runs-on: "cicd"
     steps:
       - name: Checkout Repository With Actions 
@@ -28,7 +28,7 @@ jobs:
         shell: bash {0}
 
   go-build:
-    name: Base Test
+    name: Go Build
     runs-on: "cicd"
     steps:
       - name: Checkout Repository With Actions
