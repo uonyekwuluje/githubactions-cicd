@@ -1,75 +1,23 @@
-name: Test Branch Name
+name: BUILD-DEMO
 
 on: [push]
 
 env:
-  GO_BUILD_PATH: "/home/labadmin/go/src/github.com/main"
   CHECKOUT_BRANCH: ${{ github.event.pull_request.head.ref }}
 
 
 jobs:
-  TestVariables:
-    name: Test Environment Variables
-    runs-on: ubuntu-latest
+  build:
+    name: Base Test
+    runs-on: "cicd"
     steps:
-      - name: Clean Workspace Path
-        run: |
-           echo "Cleaning Build Workspace"
-           rm -Rf ${{ github.workspace }}
-           mkdir -p ${{ github.workspace }}
-
       - name: Checkout Repository With Actions 
         uses: actions/checkout@v2
-        with:
-           ref: ${{ github.event.pull_request.head.ref }}
+        #with:
+        #   ref: ${{ github.event.pull_request.head.ref }}
 
-      - name: Cleanup Checkout Path
-        run: |
-           if [ -d ${{ env.GO_BUILD_PATH }} ]; then sudo rm -Rf ${{ env.GO_BUILD_PATH }}; fi
-           sudo mkdir -p ${{ env.GO_BUILD_PATH }}
-           sudo chmod 777 -R ${{ env.GO_BUILD_PATH }} 
-
-      - name: Update Code Path
-        run: |
-            rsync -avzh --progress ${{ github.workspace }} ${{ env.GO_BUILD_PATH }} 
-            ls -la ${{ env.GO_BUILD_PATH }}/githubactions-recipes
 
       - name: Check Workspace
         run: |
-          cd ${{ env.GO_BUILD_PATH }} 
-          #echo "Work Space => ${{ github.workspace }}"
-          ls -la
-            
-
-  Branch_Test:
-    name: Test Shell Scripts
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.ref }}
-
-      - name: Extract Branch Name
-        shell: bash
-        run: |
-            echo "Base Branch => $GITHUB_REF"
-
-      - name: Branch Name
-        shell: bash
-        run: |
-            echo "Branch Name ==> $(git rev-parse --abbrev-ref HEAD)"
-
-
-
-
-  GoCode:
-    name: Test Go Code
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Run Go Code
-        run: |
-          go run gocode/main.go
+          echo "Work Space => ${{ github.workspace }}"
+          ls
