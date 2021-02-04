@@ -34,7 +34,12 @@ jobs:
       - name: Checkout Repository With Actions
         uses: actions/checkout@v2
 
-      - name: Go Test
+      - name: Go Version
         run: |
            go version
+        shell: bash {0}
+
+      - name: Number Addition
+        run: |
+           go run gocode/main.go
         shell: bash {0}

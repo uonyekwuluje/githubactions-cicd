@@ -4,5 +4,13 @@ import "fmt"
 
 func main() {
    fmt.Println("Working Code Sample")
-   fmt.Println("---------------------") 
+   fmt.Println("---------------------")
+   addNum()
+}
+
+func addNum() {
+   fmt.Println("Addition")
+   var num1 int = 4
+   var num2 int = 5
+   fmt.Println("The Sum of ",num1," + ",num2," = ", (num1 + num2))
 }
