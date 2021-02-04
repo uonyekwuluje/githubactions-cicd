@@ -1,6 +1,12 @@
 name: BUILD-DEMO
 
-on: [push]
+on: 
+   push:
+      branches:
+      - master
+   pull_request:
+      branches:
+      - master
 
 env:
   CHECKOUT_BRANCH: ${{ github.event.pull_request.head.ref }}
@@ -16,8 +22,7 @@ jobs:
         #with:
         #   ref: ${{ github.event.pull_request.head.ref }}
 
-
-      - name: Check Workspace
+      - name: Shell Test
         run: |
-          echo "Work Space => ${{ github.workspace }}"
-          ls
+           bash test.sh
+        shell: bash {0}
