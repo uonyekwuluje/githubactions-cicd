@@ -9,8 +9,9 @@ func main() {
 }
 
 func addNum() {
-   fmt.Println("Addition")
+   fmt.Println("\nAddition")
+   fmt.Println("-----------")
    var num1 int = 4
    var num2 int = 5
-   fmt.Println("The Sum of ",num1," + ",num2," = ", (num1 + num2))
+   fmt.Printlnr("The Sum of ",num1," + ",num2," = ", (num1 + num2))
 }
